@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "name": "Dino Play",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "script.dino_play",
+            "args": [
+                "--in-dir", "in",
+                "--out-dir", "out",
+            ]
+        }
+    ]
+}
