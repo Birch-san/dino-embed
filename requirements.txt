@@ -1,3 +1,5 @@
 tqdm
 torch
 torchvision
+piexif
+xformers
