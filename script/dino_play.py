@@ -84,6 +84,8 @@ def main(args: Args) -> None:
             with inference_mode(), autocast(device_type=device.type, dtype=torch.float16, enabled=True):
                 batch_out: list[dict[str, FloatTensor]] = dinov2.forward_features_list(batch, masks_list=[None]*len(batch))
                 batch_emb: list[FloatTensor] = [e['x_norm_clstoken'] for e in batch_out]
+                emb_stack = torch.cat(batch_emb, dim=0)
+                assert not emb_stack.isnan().any().item()
                 pass
             pass
         batch: list[ByteTensor] = batch_co.get()
